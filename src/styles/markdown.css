@@ -19,13 +19,16 @@
         }
     }
 
+    /* ▼▼▼ FIXED SECTION BELOW ▼▼▼ */
     a:not(.no-styling) {
-        @apply relative bg-none link font-medium text-[var(--primary)]
+        /* Removed "link" from @apply */
+        @apply relative bg-none font-medium text-[var(--primary)]
         underline decoration-[var(--link-underline)] decoration-1 decoration-dashed underline-offset-4;
+        
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
         display: inline-block;
-    
+        
         &:hover, &:active {
             @apply decoration-transparent;
             background: var(--btn-plain-bg-hover);
@@ -33,6 +36,7 @@
             text-decoration: none;
         }
     }
+    /* ▲▲▲ END OF FIX ▲▲▲ */
 
     code {
         @apply bg-[var(--inline-code-bg)] text-[var(--inline-code-color)] px-1 py-0.5 rounded-md overflow-hidden;
