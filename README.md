@@ -1,4 +1,4 @@
-# 🚩 0xm3dd | Operative Portfolio
+# 0xm3dd | Operative Portfolio
 
 ![System Status](https://img.shields.io/badge/System-ONLINE-brightgreen?style=for-the-badge&logo=linux)
 ![Role](https://img.shields.io/badge/Role-Red_Team_Operative-red?style=for-the-badge&logo=hackthebox)
@@ -12,13 +12,13 @@ Welcome to my digital headquarters. This repository hosts the source code for my
 
 ---
 
-## 📂 Intelligence Data (Content)
+## Intelligence Data (Content)
 
 This portfolio serves as a central knowledge base for:
 
-* **🕵️‍♂️ Writeups:** Detailed walkthroughs for **HackTheBox** and **TryHackMe** machines.
-* **📝 Notes:** Cheatsheets on Penetration Testing, Linux Privilege Escalation, and Active Directory.
-* **🛠️ Projects:** Showcase of my coding and security tools.
+* **Writeups:** Detailed walkthroughs for **HackTheBox** and **TryHackMe** machines.
+* **Notes:** Cheatsheets on Penetration Testing, Linux Privilege Escalation, and Active Directory.
+* **Projects:** Showcase of my coding and security tools.
 
 ## ⚡ Tech Stack
 
@@ -29,7 +29,7 @@ This site is built for speed and security, utilizing:
 * **Theme:** Modified [Fuwari](https://github.com/saicaca/fuwari)
 * **Hosting:** GitHub Pages (Deployed via GitHub Actions)
 
-## 🚀 Local Deployment (For Testing)
+## Local Deployment (For Testing)
 
 If you want to run this operative station locally:
 
@@ -49,7 +49,7 @@ If you want to run this operative station locally:
     pnpm dev
     ```
 
-## 📜 Credits & License
+## Credits & License
 
 * Original Theme: [Fuwari](https://github.com/saicaca/fuwari) by [Saicaca](https://github.com/saicaca)
 * Customizations & Content: **0xm3dd**
