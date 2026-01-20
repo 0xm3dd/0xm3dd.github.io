@@ -5,7 +5,7 @@ description: "Prepare for a knowledge dump. Detailed walkthroughs of retired HTB
 image: ""
 tags: [HTB, Capture The Flag, Coming Soon]
 category: HackTheBox
-draft: true
+draft: false
 ---
 
 # Hack The Box Writeups — Coming Soon
