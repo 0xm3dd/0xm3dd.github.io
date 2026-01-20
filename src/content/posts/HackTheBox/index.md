@@ -1,5 +1,6 @@
 ---
 title: "Hack The Box Writeups"
+published: 2026-01-20
 description: "Hack The Box machines, challenges, and notes"
 draft: true
 ---

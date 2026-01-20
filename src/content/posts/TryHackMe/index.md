@@ -1,5 +1,6 @@
 ---
 title: "TryHackMe Writeups"
+published: 2026-01-20
 description: "TryHackMe labs, walkthroughs, and learning notes"
 draft: true
 ---
