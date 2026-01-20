@@ -20,7 +20,7 @@ This portfolio serves as a central knowledge base for:
 * **Notes:** Cheatsheets on Penetration Testing, Linux Privilege Escalation, and Active Directory.
 * **Projects:** Showcase of my coding and security tools.
 
-## ⚡ Tech Stack
+## Tech Stack
 
 This site is built for speed and security, utilizing:
 
@@ -56,6 +56,3 @@ If you want to run this operative station locally:
 * Licensed under [MIT](LICENSE).
 
 ---
-<div align="center">
-  <p><i>Encryption: ENABLED // ID: 0xm3dd</i></p>
-</div>
