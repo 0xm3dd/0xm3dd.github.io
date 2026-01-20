@@ -1,7 +1,10 @@
 ---
 title: "TryHackMe Writeups"
 published: 2026-01-20
-description: "TryHackMe labs, walkthroughs, and learning notes"
+description: "Beginner to Advanced paths. Full guides on learning paths and red teaming challenges coming soon."
+image: ""
+tags: [TryHackMe, CTF, Guide]
+category: TryHackMe
 draft: true
 ---
 
