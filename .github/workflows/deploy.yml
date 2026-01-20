@@ -21,24 +21,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ▼▼▼ THIS IS THE NEW PART FOR PNPM ▼▼▼
+      # 1. Install PNPM
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
+      # 2. Setup Node with PNPM Caching (NOT NPM)
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: 'pnpm' # <--- Tell GitHub to cache pnpm, not npm
+          cache: 'pnpm'   # <--- THIS MUST SAY 'pnpm'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 3. Install Dependencies with PNPM
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # 4. Build with PNPM
       - name: Build with Astro
         run: pnpm build
             
