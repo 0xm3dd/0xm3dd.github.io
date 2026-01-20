@@ -17,6 +17,9 @@ const postsCollection = defineCollection({
 		prevSlug: z.string().default(""),
 		nextTitle: z.string().default(""),
 		nextSlug: z.string().default(""),
+		
+		// ▼▼▼ ADD THIS LINE ▼▼▼
+    		difficulty: z.enum(["Easy", "Medium", "Hard", "Insane"]).optional(),
 	}),
 });
 const specCollection = defineCollection({

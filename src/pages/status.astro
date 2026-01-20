@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon/components";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+---
+
+<MainGridLayout title="Live Status" description="Real-time operative metrics">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-[60vh] items-center justify-center">
+        <div class="card-base z-10 px-6 py-12 relative w-full flex flex-col items-center gap-12">
+            
+            <div class="text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-500 text-sm font-mono mb-4">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    SYSTEM ONLINE
+                </div>
+                <h1 class="text-4xl font-bold text-[var(--primary)] font-heading">Operative Profile</h1>
+            </div>
+
+            <div class="w-full flex flex-col items-center gap-4">
+                <h3 class="font-bold text-[var(--primary)] font-mono text-sm opacity-75 uppercase tracking-wider">>> Training_Module</h3>
+                
+                <div class="relative w-full max-w-[500px] overflow-hidden rounded-xl shadow-2xl border border-[var(--line-color)] bg-white dark:bg-[#11191f] h-[200px] flex items-center justify-center group hover:border-[var(--primary)] transition-all duration-300">
+                    <iframe 
+                        src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2567292" 
+                        class="transform scale-[1.50]"
+                        style="border:none; width: 327px; height: 130px; overflow: hidden;"
+                        scrolling="no"
+                        title="TryHackMe Badge"
+                    ></iframe>
+                </div>
+            </div>
+
+            <div class="w-full max-w-3xl flex flex-col gap-4">
+                <h3 class="font-bold text-[var(--primary)] font-mono text-sm opacity-75 uppercase tracking-wider text-center">>> Establish_Uplink</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <a href="mailto:mohammedelfadlaouii@gmail.com" target="_blank" class="contact-btn group">
+                        <div class="icon-box">
+                            <Icon name="material-symbols:mail-rounded" class="text-2xl" />
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-mono opacity-60 dark:opacity-50 uppercase text-gray-600 dark:text-gray-400">Email Protocol</span>
+                            <span class="font-bold text-gray-900 dark:text-white group-hover:text-[var(--primary)] transition-colors">Contact Me</span>
+                        </div>
+                        <Icon name="material-symbols:arrow-outward-rounded" class="ml-auto text-xl text-gray-400 dark:text-gray-500 group-hover:text-[var(--primary)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+
+                    <a href="https://linkedin.com/in/mohammed-elfadlaoui-644a4b297/" target="_blank" class="contact-btn group">
+                        <div class="icon-box">
+                            <Icon name="fa6-brands:linkedin-in" class="text-xl" />
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-mono opacity-60 dark:opacity-50 uppercase text-gray-600 dark:text-gray-400">Professional Net</span>
+                            <span class="font-bold text-gray-900 dark:text-white group-hover:text-[var(--primary)] transition-colors">LinkedIn</span>
+                        </div>
+                        <Icon name="material-symbols:arrow-outward-rounded" class="ml-auto text-xl text-gray-400 dark:text-gray-500 group-hover:text-[var(--primary)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+
+                    <a href="https://twitter.com/0xm3dd" target="_blank" class="contact-btn group">
+                        <div class="icon-box">
+                            <Icon name="fa6-brands:x-twitter" class="text-xl" />
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-mono opacity-60 dark:opacity-50 uppercase text-gray-600 dark:text-gray-400">Social Feed</span>
+                            <span class="font-bold text-gray-900 dark:text-white group-hover:text-[var(--primary)] transition-colors">Twitter / X</span>
+                        </div>
+                        <Icon name="material-symbols:arrow-outward-rounded" class="ml-auto text-xl text-gray-400 dark:text-gray-500 group-hover:text-[var(--primary)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+
+                    <a href="https://github.com/0xm3dd" target="_blank" class="contact-btn group">
+                        <div class="icon-box">
+                            <Icon name="fa6-brands:github" class="text-xl" />
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-mono opacity-60 dark:opacity-50 uppercase text-gray-600 dark:text-gray-400">Code Repository</span>
+                            <span class="font-bold text-gray-900 dark:text-white group-hover:text-[var(--primary)] transition-colors">GitHub</span>
+                        </div>
+                        <Icon name="material-symbols:arrow-outward-rounded" class="ml-auto text-xl text-gray-400 dark:text-gray-500 group-hover:text-[var(--primary)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-4 border-t border-[var(--line-color)] pt-6 w-full max-w-lg">
+                <p class="text-xs font-mono opacity-50 text-gray-600 dark:text-gray-400">Encryption: ENABLED // ID: 0xm3dd</p>
+            </div>
+
+        </div>
+    </div>
+</MainGridLayout>
+
+<style>
+    .contact-btn {
+        @apply flex items-center gap-4 p-4 rounded-xl border border-[var(--line-color)] bg-[var(--card-bg)] 
+               hover:border-[var(--primary)] hover:shadow-lg transition-all duration-300;
+    }
+    
+    .icon-box {
+        @apply w-12 h-12 rounded-lg bg-[var(--btn-regular-bg)] flex items-center justify-center text-[var(--primary)];
+    }
+</style>

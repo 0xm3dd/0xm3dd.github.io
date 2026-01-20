@@ -1,7 +1,7 @@
 ---
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+//import "@fontsource/roboto/400.css";
+//import "@fontsource/roboto/500.css";
+//import "@fontsource/roboto/700.css";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
 import { profileConfig, siteConfig } from "@/config";
@@ -77,7 +77,12 @@ const bannerOffset =
 	  data-overlayscrollbars-initialize
 >
 	<head>
-
+		<!-- Changing Fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesque:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+		
+		
 		<title>{pageTitle}</title>
 
 		<meta charset="UTF-8" />

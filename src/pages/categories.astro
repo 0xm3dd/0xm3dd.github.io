@@ -1,0 +1,55 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getCollection } from "astro:content";
+
+// 1. Fetch all posts
+const allPosts = await getCollection("posts");
+
+// 2. Count categories
+const categoryCounts = allPosts.reduce((acc, post) => {
+    const category = post.data.category;
+    if (category) {
+        acc[category] = (acc[category] || 0) + 1;
+    }
+    return acc;
+}, {} as Record<string, number>);
+
+const categories = Object.keys(categoryCounts).sort();
+---
+
+<MainGridLayout title="Mission Control">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+            
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-[var(--primary)]">Mission Control</h1>
+                <p class="text-sm opacity-75 mt-2 text-gray-600 dark:text-gray-300">
+                    Select a target platform to view archives.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {categories.map((category) => (
+                    <a href={`/archive/?category=${category}`} 
+                       class="transition-all duration-300 hover:scale-[1.02] flex items-center justify-between 
+                              bg-[var(--card-bg)] p-5 rounded-lg border border-[var(--line-color)] 
+                              hover:border-[var(--primary)] group"
+                    >
+                        <div class="flex items-center gap-3">
+                            <span class="text-lg font-bold text-gray-800 dark:text-white group-hover:text-[var(--primary)] transition-colors">
+                                {category}
+                            </span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono bg-[var(--btn-regular-bg)] px-2 py-1 rounded text-gray-600 dark:text-gray-300 group-hover:text-[var(--primary)]">
+                                {categoryCounts[category]} posts
+                            </span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+        </div>
+    </div>
+</MainGridLayout>

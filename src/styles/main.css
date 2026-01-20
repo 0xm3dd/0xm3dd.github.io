@@ -116,9 +116,46 @@
     @apply cursor-zoom-in
 }
 
-::selection {
+/*::selection {
     background-color: var(--selection-bg)
+} */
+
+
+/* ========================================= */
+/* ⚡ 0xm3dd CUSTOMIZATIONS (Fonts & UI) ⚡ */
+/* ========================================= */
+
+/* 1. Apply Cyber Fonts */
+:root {
+    --font-heading: 'Space Grotesque', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
 }
+
+/* 2. Kali Green Text Selection (Replaces default) */
+::selection {
+    background: rgba(0, 255, 157, 0.3) !important; /* Neon Green Highlight */
+    color: #ffffff !important;
+}
+
+/* 3. Hacker Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1117; /* Dark Background */
+}
+::-webkit-scrollbar-thumb {
+    background: #2a303c; 
+    border-radius: 4px;
+    border: 1px solid #00ff9d; /* Neon Border */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00ff9d; /* Full Green on Hover */
+    box-shadow: 0 0 10px #00ff9d; /* Glowing Effect */
+}
+
+
 
 .dash-line {
     position: relative;
@@ -150,3 +187,24 @@
     }
   }
 }
+
+
+/* ========================================= */
+/* 🚀 SPEED BOOST (Animations) 🚀 */
+/* ========================================= */
+
+/* 1. Speed up the Page Fade (SWUP) */
+/* Default is usually 0.3s or 0.5s. We force 0.15s for that 'terminal' feel. */
+html.is-changing .swup-transition-main,
+.swup-transition-main {
+    transition-duration: 0.15s !important;
+    transition-timing-function: ease-out !important;
+}
+
+/* 2. Speed up Hover Effects Global */
+a, button, .btn-plain, .card-base {
+    transition-duration: 0.15s !important;
+}
+
+
+

@@ -1,0 +1,16 @@
+---
+import ArchivePanel from "@components/ArchivePanel.svelte";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPostsList } from "../utils/content-utils";
+
+// 1. Fetch ALL posts sorted by date
+const allPosts = await getSortedPostsList();
+
+// 2. Filter to keep ONLY "Notes"
+// We check if the category matches exactly.
+const notesPosts = allPosts.filter(post => post.data.category === "Notes");
+---
+
+<MainGridLayout title="Notes">
+    <ArchivePanel sortedPosts={notesPosts} client:only="svelte"></ArchivePanel>
+</MainGridLayout>

@@ -13,6 +13,7 @@ interface Props {
 	category: string | null;
 	hideTagsForMobile?: boolean;
 	hideUpdateDate?: boolean;
+    difficulty?: string; // <--- 1. NEW PROP
 }
 const {
 	published,
@@ -21,35 +22,52 @@ const {
 	category,
 	hideTagsForMobile = false,
 	hideUpdateDate = false,
+    difficulty, // <--- 2. DESTRUCTURE IT
 } = Astro.props;
 const className = Astro.props.class;
+
+// 3. COLOR HELPER
+function getDiffColor(diff: string) {
+    switch (diff?.toLowerCase()) {
+        case 'easy': return 'text-green-600 bg-green-500/10 border-green-500/20 dark:text-green-400 border';
+        case 'medium': return 'text-orange-600 bg-orange-500/10 border-orange-500/20 dark:text-orange-400 border';
+        case 'hard': return 'text-red-600 bg-red-500/10 border-red-500/20 dark:text-red-400 border';
+        case 'insane': return 'text-purple-600 bg-purple-500/10 border-purple-500/20 dark:text-purple-400 border';
+        default: return 'hidden';
+    }
+}
 ---
 
 <div class:list={["flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2", className]}>
-    <!-- publish date -->
+    
     <div class="flex items-center">
-        <div class="meta-icon"
-        >
+        <div class="meta-icon">
             <Icon name="material-symbols:calendar-today-outline-rounded" class="text-xl"></Icon>
         </div>
         <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(published)}</span>
     </div>
 
-    <!-- update date -->
     {!hideUpdateDate && updated && updated.getTime() !== published.getTime() && (
         <div class="flex items-center">
-            <div class="meta-icon"
-            >
+            <div class="meta-icon">
                 <Icon name="material-symbols:edit-calendar-outline-rounded" class="text-xl"></Icon>
             </div>
             <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(updated)}</span>
         </div>
     )}
 
-    <!-- categories -->
+    {difficulty && (
+        <div class="flex items-center">
+            <div class="meta-icon">
+                <Icon name="material-symbols:flag-rounded" class="text-xl"></Icon>
+            </div>
+            <span class={`text-[0.65rem] uppercase tracking-wider font-bold px-2 py-0.5 rounded ${getDiffColor(difficulty)}`}>
+                {difficulty}
+            </span>
+        </div>
+    )}
     <div class="flex items-center">
-        <div class="meta-icon"
-        >
+        <div class="meta-icon">
             <Icon name="material-symbols:book-2-outline-rounded" class="text-xl"></Icon>
         </div>
         <div class="flex flex-row flex-nowrap items-center">
@@ -61,10 +79,8 @@ const className = Astro.props.class;
         </div>
     </div>
 
-    <!-- tags -->
     <div class:list={["items-center", {"flex": !hideTagsForMobile, "hidden md:flex": hideTagsForMobile}]}>
-        <div class="meta-icon"
-        >
+        <div class="meta-icon">
             <Icon name="material-symbols:tag-rounded" class="text-xl"></Icon>
         </div>
         <div class="flex flex-row flex-nowrap items-center">

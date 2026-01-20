@@ -15,73 +15,85 @@ categories = params.has("category") ? params.getAll("category") : [];
 const uncategorized = params.get("uncategorized");
 
 interface Post {
-	slug: string;
-	data: {
-		title: string;
-		tags: string[];
-		category?: string;
-		published: Date;
-	};
+    slug: string;
+    data: {
+        title: string;
+        tags: string[];
+        category?: string;
+        published: Date;
+        difficulty?: string; // <--- 1. ADDED THIS
+    };
 }
 
 interface Group {
-	year: number;
-	posts: Post[];
+    year: number;
+    posts: Post[];
 }
 
 let groups: Group[] = [];
 
 function formatDate(date: Date) {
-	const month = (date.getMonth() + 1).toString().padStart(2, "0");
-	const day = date.getDate().toString().padStart(2, "0");
-	return `${month}-${day}`;
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+    return `${month}-${day}`;
 }
 
 function formatTag(tagList: string[]) {
-	return tagList.map((t) => `#${t}`).join(" ");
+    return tagList.map((t) => `#${t}`).join(" ");
+}
+
+// 2. ADDED THIS HELPER FUNCTION
+function getDiffColor(diff: string) {
+    switch (diff?.toLowerCase()) {
+        case 'easy': return 'text-green-600 bg-green-500/10 border-green-500/20 dark:text-green-400 border';
+        case 'medium': return 'text-orange-600 bg-orange-500/10 border-orange-500/20 dark:text-orange-400 border';
+        case 'hard': return 'text-red-600 bg-red-500/10 border-red-500/20 dark:text-red-400 border';
+        case 'insane': return 'text-purple-600 bg-purple-500/10 border-purple-500/20 dark:text-purple-400 border';
+        default: return 'hidden';
+    }
 }
 
 onMount(async () => {
-	let filteredPosts: Post[] = sortedPosts;
+    let filteredPosts: Post[] = sortedPosts;
 
-	if (tags.length > 0) {
-		filteredPosts = filteredPosts.filter(
-			(post) =>
-				Array.isArray(post.data.tags) &&
-				post.data.tags.some((tag) => tags.includes(tag)),
-		);
-	}
+    if (tags.length > 0) {
+        filteredPosts = filteredPosts.filter(
+            (post) =>
+                Array.isArray(post.data.tags) &&
+                post.data.tags.some((tag) => tags.includes(tag)),
+        );
+    }
 
-	if (categories.length > 0) {
-		filteredPosts = filteredPosts.filter(
-			(post) => post.data.category && categories.includes(post.data.category),
-		);
-	}
+    if (categories.length > 0) {
+        filteredPosts = filteredPosts.filter(
+            (post) => post.data.category && categories.includes(post.data.category),
+        );
+    }
 
-	if (uncategorized) {
-		filteredPosts = filteredPosts.filter((post) => !post.data.category);
-	}
+    if (uncategorized) {
+        filteredPosts = filteredPosts.filter((post) => !post.data.category);
+    }
 
-	const grouped = filteredPosts.reduce(
-		(acc, post) => {
-			const year = post.data.published.getFullYear();
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(post);
-			return acc;
-		},
-		{} as Record<number, Post[]>,
-	);
+    const grouped = filteredPosts.reduce(
+        (acc, post) => {
+            const year = post.data.published.getFullYear();
+            if (!acc[year]) {
+                acc[year] = [];
+            }
+            acc[year].push(post);
+            return acc;
+        },
+        {} as Record<number, Post[]>,
+    );
 
-	const groupedPostsArray = Object.keys(grouped).map((yearStr) => ({
-		year: Number.parseInt(yearStr, 10),
-		posts: grouped[Number.parseInt(yearStr, 10)],
-	}));
+    const groupedPostsArray = Object.keys(grouped).map((yearStr) => ({
+        year: Number.parseInt(yearStr, 10),
+        posts: grouped[Number.parseInt(yearStr, 10)],
+    }));
 
-	groupedPostsArray.sort((a, b) => b.year - a.year);
+    groupedPostsArray.sort((a, b) => b.year - a.year);
 
-	groups = groupedPostsArray;
+    groups = groupedPostsArray;
 });
 </script>
 
@@ -94,7 +106,7 @@ onMount(async () => {
                 </div>
                 <div class="w-[15%] md:w-[10%]">
                     <div
-                            class="h-3 w-3 bg-none rounded-full outline outline-[var(--primary)] mx-auto
+                        class="h-3 w-3 bg-none rounded-full outline outline-[var(--primary)] mx-auto
                   -outline-offset-[2px] z-50 outline-3"
                     ></div>
                 </div>
@@ -105,20 +117,18 @@ onMount(async () => {
 
             {#each group.posts as post}
                 <a
-                        href={getPostUrlBySlug(post.slug)}
-                        aria-label={post.data.title}
-                        class="group btn-plain !block h-10 w-full rounded-lg hover:text-[initial]"
+                    href={getPostUrlBySlug(post.slug)}
+                    aria-label={post.data.title}
+                    class="group btn-plain !block h-10 w-full rounded-lg hover:text-[initial]"
                 >
                     <div class="flex flex-row justify-start items-center h-full">
-                        <!-- date -->
                         <div class="w-[15%] md:w-[10%] transition text-sm text-right text-50">
                             {formatDate(post.data.published)}
                         </div>
 
-                        <!-- dot and line -->
                         <div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">
                             <div
-                                    class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
+                                class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
                        bg-[oklch(0.5_0.05_var(--hue))] group-hover:bg-[var(--primary)]
                        outline outline-4 z-50
                        outline-[var(--card-bg)]
@@ -127,19 +137,23 @@ onMount(async () => {
                             ></div>
                         </div>
 
-                        <!-- post title -->
                         <div
-                                class="w-[70%] md:max-w-[65%] md:w-[65%] text-left font-bold
-                     group-hover:translate-x-1 transition-all group-hover:text-[var(--primary)]
-                     text-75 pr-8 whitespace-nowrap overflow-ellipsis overflow-hidden"
+                            class="w-[70%] md:max-w-[65%] md:w-[65%] text-left font-bold
+                      group-hover:translate-x-1 transition-all group-hover:text-[var(--primary)]
+                      text-75 pr-8 whitespace-nowrap overflow-ellipsis overflow-hidden flex items-center gap-2"
                         >
-                            {post.data.title}
+                            <span>{post.data.title}</span>
+
+                            {#if post.data.difficulty}
+                                <span class="text-[0.65rem] uppercase tracking-wider font-bold px-2 py-0.5 rounded {getDiffColor(post.data.difficulty)}">
+                                    {post.data.difficulty}
+                                </span>
+                            {/if}
                         </div>
 
-                        <!-- tag list -->
                         <div
-                                class="hidden md:block md:w-[15%] text-left text-sm transition
-                     whitespace-nowrap overflow-ellipsis overflow-hidden text-30"
+                            class="hidden md:block md:w-[15%] text-left text-sm transition
+                      whitespace-nowrap overflow-ellipsis overflow-hidden text-30"
                         >
                             {formatTag(post.data.tags)}
                         </div>
