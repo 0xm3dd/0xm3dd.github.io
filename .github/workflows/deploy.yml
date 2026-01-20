@@ -40,10 +40,7 @@ jobs:
         run: pnpm build
       
       - name: Generate Search Index
-        uses: cloudcannon/pagefind-action@v3
-        with:
-          site: dist
-          path: pagefind
+        run: npx pagefind --site dist
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

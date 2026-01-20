@@ -83,9 +83,6 @@ importers:
       overlayscrollbars:
         specifier: ^2.12.0
         version: 2.12.0
-      pagefind:
-        specifier: ^1.4.0
-        version: 1.4.0
       photoswipe:
         specifier: ^5.4.4
         version: 5.4.4
@@ -162,6 +159,9 @@ importers:
       '@types/sanitize-html':
         specifier: ^2.16.0
         version: 2.16.0
+      pagefind:
+        specifier: ^1.4.0
+        version: 1.4.0
       postcss-import:
         specifier: ^16.1.1
         version: 16.1.1(postcss@8.5.6)

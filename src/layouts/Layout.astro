@@ -153,15 +153,36 @@ const bannerOffset =
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
 	</head>
+	
+	<!-- Version Changing -->
+	
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
-		  data-overlayscrollbars-initialize
-	>
-		<ConfigCarrier></ConfigCarrier>
-		<slot />
+          data-overlayscrollbars-initialize
+    >
+        <ConfigCarrier></ConfigCarrier>
+        <slot />
 
-		<!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
-		<div id="page-height-extend" class="hidden h-[300vh]"></div>
-	</body>
+        <div id="page-height-extend" class="hidden h-[300vh]"></div>
+
+        <script is:inline>
+            // This script forces the browser to load the search engine we built
+            window.addEventListener('load', async () => {
+                if (!window.pagefind) {
+                    try {
+                        // Attempt to load the search index
+                        await import('/pagefind/pagefind.js');
+                        // Ensure it is available globally
+                        window.pagefind = await import('/pagefind/pagefind.js');
+                    } catch (e) {
+                        console.log("Pagefind not found (Normal if running 'npm run dev')");
+                    }
+                }
+            });
+        </script>
+        </body>
+	
+	
+	
 </html>
 
 <style is:global define:vars={{
