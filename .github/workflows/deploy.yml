@@ -21,7 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ▼▼▼ FIX: No version specified here. It will read package.json ▼▼▼
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
@@ -41,7 +40,10 @@ jobs:
         run: pnpm build
       
       - name: Generate Search Index
-        run: npx pagefind --site dist
+        uses: cloudcannon/pagefind-action@v3
+        with:
+          site: dist
+          path: pagefind
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
