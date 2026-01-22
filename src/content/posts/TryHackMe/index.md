@@ -5,7 +5,7 @@ description: "Beginner to Advanced paths. Full guides on learning paths and red 
 image: ""
 tags: [TryHackMe, CTF, Guide]
 category: TryHackMe
-draft: false
+draft: true
 ---
 
 # TryHackMe Writeups — Coming Soon
