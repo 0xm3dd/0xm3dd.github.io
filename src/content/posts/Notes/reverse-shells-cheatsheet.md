@@ -1,6 +1,6 @@
 ---
 title: Reverse Shells Cheatsheet
-published: 2024-01-20
+published: 2026-01-18
 description: 'Comprehensive collection of reverse shell one-liners and techniques for different platforms and scenarios'
 image: ''
 tags: [ReverseShell, PostExploitation, CTF, RedTeam]

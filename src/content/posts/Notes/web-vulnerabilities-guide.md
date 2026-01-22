@@ -1,6 +1,6 @@
 ---
 title: Web Application Vulnerabilities Guide
-published: 2024-01-18
+published: 2026-01-18
 description: 'Essential web vulnerabilities and exploitation techniques for CTFs and bug bounty hunting'
 image: ''
 tags: [Web, OWASP, CTF, BugBounty]

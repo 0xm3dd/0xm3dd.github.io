@@ -1,6 +1,6 @@
 ---
 title: CTF Tools and Techniques Guide
-published: 2024-01-22
+published: 2026-01-18
 description: 'Essential tools, techniques, and methodologies for solving CTF challenges across various categories'
 image: ''
 tags: [CTF, Tools, Forensics, Crypto, OSINT]

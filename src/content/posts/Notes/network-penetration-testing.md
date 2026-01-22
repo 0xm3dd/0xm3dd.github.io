@@ -1,6 +1,6 @@
 ---
 title: Network Penetration Testing Guide
-published: 2024-01-25
+published: 2026-01-18
 description: 'Comprehensive guide covering network reconnaissance, enumeration, and exploitation techniques for penetration testing'
 image: ''
 tags: [Network, Pentesting, Enumeration, Exploitation]

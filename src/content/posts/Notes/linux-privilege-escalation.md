@@ -1,6 +1,6 @@
 ---
 title: Linux Privilege Escalation
-published: 2024-01-15
+published: 2026-01-18
 description: 'A comprehensive guide to Linux privilege escalation techniques commonly used in CTFs and penetration testing'
 image: ''
 tags: [Linux, PrivEsc, CTF, Pentesting]

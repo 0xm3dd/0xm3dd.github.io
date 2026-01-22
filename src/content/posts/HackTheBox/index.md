@@ -1,6 +1,6 @@
 ---
 title: "Hack The Box Writeups"
-published: 2026-01-20
+published: 2026-01-19
 description: "Prepare for a knowledge dump. Detailed walkthroughs of retired HTB machines are being decrypted..."
 image: ""
 tags: [HTB, Capture The Flag, Coming Soon]
