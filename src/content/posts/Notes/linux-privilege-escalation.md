@@ -5,7 +5,7 @@ description: 'A comprehensive guide to Linux privilege escalation techniques com
 image: ''
 tags: [Linux, PrivEsc, CTF, Pentesting]
 category: Notes
-draft: false
+draft: true
 ---
 
 # Linux Privilege Escalation Cheatsheet

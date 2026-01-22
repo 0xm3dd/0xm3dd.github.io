@@ -5,7 +5,7 @@ description: 'Comprehensive collection of reverse shell one-liners and technique
 image: ''
 tags: [ReverseShell, PostExploitation, CTF, RedTeam]
 category: 'Notes'
-draft: false
+draft: true
 ---
 
 # Reverse Shells Cheatsheet

@@ -5,7 +5,7 @@ description: 'Comprehensive guide covering network reconnaissance, enumeration, 
 image: ''
 tags: [Network, Pentesting, Enumeration, Exploitation]
 category: 'Notes'
-draft: false
+draft: true
 ---
 
 # Network Penetration Testing Guide

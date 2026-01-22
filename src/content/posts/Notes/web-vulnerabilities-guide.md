@@ -5,7 +5,7 @@ description: 'Essential web vulnerabilities and exploitation techniques for CTFs
 image: ''
 tags: [Web, OWASP, CTF, BugBounty]
 category: 'Notes'
-draft: false
+draft: true
 ---
 
 # Web Application Vulnerabilities Guide
