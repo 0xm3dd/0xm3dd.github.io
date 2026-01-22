@@ -76,7 +76,7 @@ You can use GoBuster to enumerate hidden directories on the web servers. This is
 ```bash
 gobuster dir -u http://10.66.154.228 -w /usr/share/wordlists/dirb/common.txt
 ```
-But For me I have used FeroxBuster it's fast and powerfull
+However, I prefer using FeroxBuster as it is faster and more powerful.
 ![Feroxbuster-Hidden dirs / files](./EasyPeasy-THM/1.png)
 
 During my enumeration, I discovered a hidden directory named `/hidden` but after inspecting seems nothing useful in it. Further digging into `/hidden/whatever` and inspecting the source page of this directory I found a paragraph text encoded in `base64`.
@@ -99,12 +99,12 @@ For me I have used a popular plateform called `Cyberchef`.
 >
 >> `flag{REDACTED}`
 
-Now i think we have done with port 80 let’s see what’s in port 65524
+With Port 80 fully enumerated, let's investigate Port 65524.
 
-default Apache server webpage :
+Default Apache server webpage :
 
 ![apache interface](./EasyPeasy-THM/4.0.png)
-Mmmmm.. This is not the default Apache header, so it’s worth keeping in mind for later.
+Hmm... This is not the default Apache header, so it’s worth keeping in mind for later.
 
 
 During my Nmap scan, I noticed that `/robots.txt` exists, so let’s check it out.
@@ -226,7 +226,7 @@ Since the rotation value was unknown, I used **CyberChef** to **brute‑force al
 >
 >> What is the user flag?
 >
->> `flag{REDACTED]`
+>> `flag{REDACTED}`
 
 ## Privilege Escalation
 
