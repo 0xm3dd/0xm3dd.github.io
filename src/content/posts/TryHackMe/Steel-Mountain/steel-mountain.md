@@ -2,7 +2,7 @@
 title: "TryHackMe: Steel Mountain Walkthrough"
 published: 2026-01-24
 description: "A complete guide to the Steel Mountain room. Enumerating a Windows machine, gaining access via Metasploit, and performing manual privilege escalation."
-image: ""
+image: "./cover-steel-mountain.png"
 tags: [TryHackMe, Windows, Metasploit, Privilege Escalation, PowerShell]
 difficulty: Easy
 category: TryHackMe
@@ -53,9 +53,7 @@ Here is the relevant output from my scan:
 cat nmap_scan
 ```
 ```text
-# Nmap 7.98 scan initiated Sat Jan 24 19:49:01 2026 as: /usr/lib/nmap/nmap --privileged -sV -T5 -sC -Pn -o nmap_scan 10.66.180.12
-Nmap scan report for 10.66.180.12
-Host is up (0.19s latency).
+
 Not shown: 988 closed tcp ports (reset)
 PORT      STATE SERVICE       VERSION
 80/tcp    open  http          Microsoft IIS httpd 8.5
@@ -103,9 +101,7 @@ Host script results:
 | smb2-security-mode:
 |   3.0.2:
 |_    Message signing enabled but not required
-| smb2-time:
-|   date: 2026-01-24T18:50:18
-|_  start_date: 2026-01-24T18:42:43
+|
 
 ```
 ## Analysis of Open Ports
